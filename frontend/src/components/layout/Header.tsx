@@ -59,7 +59,7 @@ const navItems: NavItem[] = [
 
 export default function Header() {
   return (
-    <header className="border-b">
+    <header>
       <div className="flex justify-between items-center py-6 w-full">
         <Logo />
         <NavMenuItems navItems={navItems} />

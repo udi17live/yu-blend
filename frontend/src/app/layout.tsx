@@ -1,4 +1,3 @@
-// layout.tsx (RootLayout)
 import { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/layout/Header";
@@ -17,18 +16,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased font-body">
+      <body className="container mx-auto px-4 md:px-0 flex flex-col min-h-screen antialiased font-body">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <div className="container mx-auto px-4 md:px-0">
+          <div className="flex-1">
             <Header />
             {children}
-            <Footer />
           </div>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
