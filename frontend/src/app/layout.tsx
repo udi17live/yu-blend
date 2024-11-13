@@ -1,7 +1,9 @@
-import type { Metadata } from "next";
+// layout.tsx (RootLayout)
+import { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,12 +17,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className=" bg-slate-50 antialiased font-body">
-        <div className="container mx-auto px-4 md:px-0">
-          <Header />
-          {children}
-          <Footer />
-        </div>
+      <body className="antialiased font-body">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="container mx-auto px-4 md:px-0">
+            <Header />
+            {children}
+            <Footer />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );
